@@ -41,7 +41,7 @@ module Monza
         if @latest_receipt_info.last.cancellation_date
           false
         else
-          @latest_receipt_info.last.expires_date_ms >= Time.zone.now
+          Time.zone.at(@latest_receipt_info.last.expires_date_ms.to_i / 1000) >= Time.zone.now
         end
       else
         false
@@ -53,7 +53,7 @@ module Monza
       latest_expires_date_ms = expires_dates_ms.max
 
       if latest_expires_date_ms
-        latest_expires_date_ms >= Time.zone.now
+        Time.zone.at(latest_expires_date_ms.to_i / 1000) >= Time.zone.now
       else
         false
       end
@@ -62,7 +62,7 @@ module Monza
     def latest_active_transaction_receipt
       latest_active_sub = @latest_receipt_info.sort_by(&:expires_date_ms).last
 
-      if latest_active_sub && latest_active_sub.expires_date_ms >= Time.zone.now
+      if Time.zone.at(latest_active_sub.to_i / 1000) && Time.zone.at(latest_active_sub.expires_date_ms.to_i / 1000) >= Time.zone.now
         return latest_active_sub
       else
         return nil
