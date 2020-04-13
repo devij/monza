@@ -65,10 +65,10 @@ module Monza
       @transaction_id = latest_receipt_info['transaction_id']
       @original_transaction_id = latest_receipt_info['original_transaction_id']
       @purchase_date = DateTime.parse(latest_receipt_info['purchase_date']) if latest_receipt_info['purchase_date']
-      @purchase_date_ms = Time.zone.at(latest_receipt_info['purchase_date_ms'].to_i / 1000)
+      @purchase_date_ms = latest_receipt_info['purchase_date_ms'].to_i
       @purchase_date_pst = date_for_pacific_time(latest_receipt_info['purchase_date_pst']) if latest_receipt_info['purchase_date_pst']
       @original_purchase_date = DateTime.parse(latest_receipt_info['original_purchase_date']) if latest_receipt_info['original_purchase_date']
-      @original_purchase_date_ms = Time.zone.at(latest_receipt_info['original_purchase_date_ms'].to_i / 1000) 
+      @original_purchase_date_ms = latest_receipt_info['original_purchase_date_ms'].to_i
       @original_purchase_date_pst = date_for_pacific_time(latest_receipt_info['original_purchase_date_pst']) if latest_receipt_info['original_purchase_date_pst']
       @web_order_line_item_id = latest_receipt_info['web_order_line_item_id']
       @quantity = latest_receipt_info['quantity'].to_i

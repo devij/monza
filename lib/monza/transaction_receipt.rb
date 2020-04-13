@@ -30,10 +30,10 @@ module Monza
       @transaction_id = attributes['transaction_id']
       @original_transaction_id = attributes['original_transaction_id']
       @purchase_date = DateTime.parse(attributes['purchase_date']) if attributes['purchase_date']
-      @purchase_date_ms = Time.zone.at(attributes['purchase_date_ms'].to_i / 1000)
+      @purchase_date_ms = attributes['purchase_date_ms'].to_i
       @purchase_date_pst = DateTime.parse(attributes['purchase_date_pst'].gsub("America/Los_Angeles","PST")) if attributes['purchase_date_pst']
       @original_purchase_date = DateTime.parse(attributes['original_purchase_date']) if attributes['original_purchase_date']
-      @original_purchase_date_ms = Time.zone.at(attributes['original_purchase_date_ms'].to_i / 1000)
+      @original_purchase_date_ms = attributes['original_purchase_date_ms'].to_i
       @original_purchase_date_pst = DateTime.parse(attributes['original_purchase_date_pst'].gsub("America/Los_Angeles","PST")) if attributes['original_purchase_date_pst']
       @web_order_line_item_id = attributes['web_order_line_item_id']
 

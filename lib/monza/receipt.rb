@@ -47,7 +47,7 @@ module Monza
       @request_date_pst = DateTime.parse(attributes['request_date_pst'].gsub("America/Los_Angeles","PST")) rescue nil
 
       @original_purchase_date = DateTime.parse(attributes['original_purchase_date'])
-      @original_purchase_date_ms = Time.zone.at(attributes['original_purchase_date_ms'].to_i / 1000)
+      @original_purchase_date_ms = attributes['original_purchase_date_ms'].to_i
       @original_purchase_date_pst = DateTime.parse(attributes['original_purchase_date_pst'].gsub("America/Los_Angeles","PST"))
       @original_application_version = attributes['original_application_version']
 
