@@ -58,7 +58,8 @@
       "web_order_line_item_id": "1000000032727765",
       "is_trial_period": "true",
       "is_in_intro_offer_period": "false",
-      "subscription_group_identifier": "12345678"
+      "subscription_group_identifier": "12345678",
+      "type": "ios-appstore"
     }
   ],
   "latest_receipt": "base 64 string",
