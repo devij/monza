@@ -23,7 +23,7 @@ module Monza
         @grace_period_expires_date = DateTime.parse(attributes['grace_period_expires_date'])
       end
       if attributes['grace_period_expires_date_ms']
-        @grace_period_expires_date_ms = Time.zone.at(attributes['grace_period_expires_date_ms'].to_i / 1000)
+        @grace_period_expires_date_ms = attributes['grace_period_expires_date_ms'].to_i
       end
       if attributes['grace_period_expires_date_pst']
         @grace_period_expires_date_pst = DateTime.parse(attributes['grace_period_expires_date_pst'].gsub("America/Los_Angeles","PST"))

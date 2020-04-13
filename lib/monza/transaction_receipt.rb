@@ -47,9 +47,9 @@ module Monza
         end
       end
       if attributes['expires_date_ms']
-        @expires_date_ms = Time.zone.at(attributes['expires_date_ms'].to_i / 1000)
+        @expires_date_ms = attributes['expires_date_ms'].to_i
       elsif attributes['expires_date']
-        @expires_date_ms = Time.zone.at(attributes['expires_date'].to_i / 1000)
+        @expires_date_ms = attributes['expires_date'].to_i
       end
       if attributes['expires_date_pst']
         @expires_date_pst = DateTime.parse(attributes['expires_date_pst'].gsub("America/Los_Angeles","PST"))

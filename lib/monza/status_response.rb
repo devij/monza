@@ -81,7 +81,7 @@ module Monza
         @expires_date = DateTime.parse(latest_receipt_info['expires_date_formatted'])
       end
       if latest_receipt_info['expires_date']
-        @expires_date_ms = Time.zone.at(latest_receipt_info['expires_date'].to_i / 1000)
+        @expires_date_ms = latest_receipt_info['expires_date'].to_i
       end
       if latest_receipt_info['expires_date_formatted_pst']
         @expires_date_pst = date_for_pacific_time(latest_receipt_info['expires_date_formatted_pst'])
