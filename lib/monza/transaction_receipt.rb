@@ -39,6 +39,7 @@ module Monza
       @original_purchase_date_ms = attributes['original_purchase_date_ms'].to_i
       @original_purchase_date_pst = DateTime.parse(attributes['original_purchase_date_pst'].gsub("America/Los_Angeles","PST")) if attributes['original_purchase_date_pst']
       @web_order_line_item_id = attributes['web_order_line_item_id']
+      @type = 'ios-appstore'
 
       if attributes['expires_date']
         begin
@@ -65,9 +66,6 @@ module Monza
       end
       if attributes['subscription_group_identifier']
         @subscription_group_identifier = attributes['subscription_group_identifier']
-      end
-      if attributes['type']
-        @type = attributes['type']
       end
       if attributes['cancellation_date']
         @cancellation_date = DateTime.parse(attributes['cancellation_date'])
