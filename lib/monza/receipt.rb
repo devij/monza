@@ -40,10 +40,10 @@ module Monza
       @download_id = attributes['download_id']
 
       @receipt_creation_date = DateTime.parse(attributes['receipt_creation_date']) rescue nil
-      @receipt_creation_date_ms = Time.zone.at(attributes['receipt_creation_date_ms'].to_i / 1000) rescue nil
+      @receipt_creation_date_ms = attributes['receipt_creation_date_ms'].to_i rescue nil
       @receipt_creation_date_pst = DateTime.parse(attributes['receipt_creation_date_pst'].gsub("America/Los_Angeles","PST")) rescue nil
       @request_date = DateTime.parse(attributes['request_date']) rescue nil
-      @request_date_ms = Time.zone.at(attributes['request_date_ms'].to_i / 1000) rescue nil
+      @request_date_ms = attributes['request_date_ms'].to_i rescue nil
       @request_date_pst = DateTime.parse(attributes['request_date_pst'].gsub("America/Los_Angeles","PST")) rescue nil
 
       @original_purchase_date = DateTime.parse(attributes['original_purchase_date'])
